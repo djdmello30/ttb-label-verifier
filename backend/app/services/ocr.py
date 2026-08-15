@@ -1,11 +1,13 @@
 import pytesseract
+import os
 from PIL import Image
 
 
 # Explicitly configure Tesseract on Windows
-pytesseract.pytesseract.tesseract_cmd = (
-    r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-)
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = (
+        r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+    )
 
 
 def extract_text(image: Image.Image) -> str:
