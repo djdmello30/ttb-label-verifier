@@ -7,3 +7,12 @@ services:
     envVars:
       - key: OPENAI_API_KEY
         sync: false
+# Frontend
+  - type: web
+    name: ttb-label-verifier-frontend
+    runtime: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://ttb-label-verifier-api.onrender.com
